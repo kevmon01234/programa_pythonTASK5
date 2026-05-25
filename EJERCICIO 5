@@ -18,11 +18,11 @@ def calcular_compromiso(duracion, clics):
         return "Medio"
 
 def generar_informe(sesiones):
-    print("=" * 35)
-    print(f"{'INFORME DE COMPROMISO DE CLIENTES':^35}")
-    print("=" * 35)
-    print(f"{'ID Cliente':<15} | {'Clasificación':<15}")
-    print("-" * 35)
+    print("=" * 25)
+    print(f"{'INFORME DE COMPROMISO DE CLIENTES':^25}")
+    print("=" * 25)
+    print(f"{'ID Cliente':<10} | {'Clasificación':<10}")
+    print("-" * 25)
     
     for sesion in sesiones:
         id_cliente = sesion[0]
@@ -31,8 +31,8 @@ def generar_informe(sesiones):
                 
         clasificacion = calcular_compromiso(duracion, clics)
                
-        print(f"{id_cliente:<15} | {clasificacion:<15}")
+        print(f"{id_cliente:<10} | {clasificacion:<10}")
         
-    print("=" * 35)
+    print("=" * 25)
 
 generar_informe(matriz_sesiones)
