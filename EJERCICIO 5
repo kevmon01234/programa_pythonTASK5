@@ -1,0 +1,38 @@
+matriz_sesiones = [
+    ["CLI-101", 200, 10],  # Alto ( > 180 y > 8)
+    ["CLI-102", 45,  2],   # Bajo  ( < 60 o < 3)
+    ["CLI-103", 120, 5],   # Medio (Otros casos)
+    ["CLI-104", 250, 4],   # Medio (No cumple ambas para Alto, ni para Bajo)
+    ["CLI-105", 55,  9]    # Bajo  ( < 60 es verdadero)
+]
+
+def calcular_compromiso(duracion, clics):
+    
+    if duracion > 180 and clics > 8:
+        return "Alto"
+    # Lógica para nivel Bajo
+    elif duracion < 60 or clics < 3:
+        return "Bajo"
+    # Cualquier otro caso
+    else:
+        return "Medio"
+
+def generar_informe(sesiones):
+    print("=" * 35)
+    print(f"{'INFORME DE COMPROMISO DE CLIENTES':^35}")
+    print("=" * 35)
+    print(f"{'ID Cliente':<15} | {'Clasificación':<15}")
+    print("-" * 35)
+    
+    for sesion in sesiones:
+        id_cliente = sesion[0]
+        duracion = sesion[1]
+        clics = sesion[2]
+                
+        clasificacion = calcular_compromiso(duracion, clics)
+               
+        print(f"{id_cliente:<15} | {clasificacion:<15}")
+        
+    print("=" * 35)
+
+generar_informe(matriz_sesiones)
